@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Crear</title>
+    <link th:href="@{/css/crearPoema.css}" rel="stylesheet" />
 </head>
 <body>
+
+<div layout:fragment="content">
+
+    <h2>Crear Poema</h2>
+
+    <div class="container2" th:switch="${usuarioActual != null}">
+
+        <div class="container" th:case="${true}">
+            <form th:action="@{/guardarPoema}" th:object="${poema}" class="form-contact"  tabindex="1">
+
+                <input type="text" class="form-contact-input" name="name" placeholder="TITULO" required  th:field="*{titulo}"/>
+
+                <input type="text" class="form-contact-input" name="imagen" placeholder="IMAGEN URL" required  th:field="*{imagen}" />
+
+                <input type="text" class="form-contact-input" name="email" th:attr="placeholder= 'Autor: '+${usuarioActual.getNombre()}" disabled/>
+
+                <textarea class="form-contact-textarea" name="conteudo" placeholder="CONTENIDO" required th:field="*{contenido}" ></textarea>
+
+                <input type="submit" class="form-contact-button" value="Enviar"/>
+
+            </form>
+        </div>
+
+        <div class="container3" th:case="*">
+
+            <h1>Debes iniciar sesión para poder crear un Poema</h1>
+            <a th:href="@{/loginRegister}">ir a logearse o registrarse</a>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>

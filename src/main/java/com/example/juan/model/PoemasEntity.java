@@ -2,7 +2,9 @@ package com.example.juan.model;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -18,9 +20,13 @@ public class PoemasEntity {
     @Basic
     @Column(name = "contenido")
     private String contenido;
+
+    @Basic
+    @Column(name = "imagen")
+    private String imagen;
     @Basic
     @Column(name = "fecha")
-    private Date fecha;
+    private Date fecha = new Date();
     @ManyToOne
     @JoinColumn(name = "ID_USER")
     private UsuariosEntity autor;
@@ -50,13 +56,21 @@ public class PoemasEntity {
         this.contenido = contenido;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
     public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
+//    public void setFecha(Date fecha) {
+//        this.fecha = fecha;
+//    }
 
     public UsuariosEntity getAutor() {
         return autor;
@@ -77,5 +91,20 @@ public class PoemasEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, titulo, contenido, fecha, autor);
+    }
+
+    public String getDia() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd");
+        return formatter.format(fecha);
+    }
+
+    public String getMes() {
+        SimpleDateFormat formatter = new SimpleDateFormat("MMM");
+        return formatter.format(fecha);
+    }
+
+    public  String getYear(){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+        return formatter.format(fecha);
     }
 }

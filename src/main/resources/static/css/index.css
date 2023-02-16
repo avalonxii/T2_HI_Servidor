@@ -1,0 +1,8 @@
+.container_banner{
+    background: url("https://static.vecteezy.com/system/resources/previews/017/601/147/non_2x/world-poetry-day-on-march-21-illustration-with-a-quill-paper-or-typewriter-for-web-banner-or-landing-page-in-flat-cartoon-hand-drawn-templates-vector.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}

@@ -15,7 +15,7 @@
     <nav class="navMenu">
         <a th:href="@{/verPoemas}">Ver Poemas </a>
         <a th:href="@{/crearPoema}" th:if="${usuarioActual != null}">Crear Poema</a>
-        <a th:href="@{/mispoemas}" th:if="${usuarioActual != null}">Mis Poemas</a>
+        <a th:href="@{/misPoemas}" th:if="${usuarioActual != null}">Mis Poemas</a>
         <a th:href="@{/cerrarSesion}" th:if="${usuarioActual != null}">Cerrar Sesión</a>
         <a th:href="@{/loginRegister}" th:if="${usuarioActual == null}">Iniciar Sesión</a>
         <div class="dot"></div>

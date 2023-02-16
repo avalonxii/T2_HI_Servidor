@@ -27,6 +27,10 @@ public class PoemasService {
         return this.listaPoemas;
     }
 
+    public List<PoemasEntity> buscarPoemasAutor(int autor) {
+        return poemasRepository.mostrarMisPoemas(autor);
+    }
+
     //guardar poema
     public void guardarPoema(PoemasEntity poema){
         poemasRepository.save(poema);
