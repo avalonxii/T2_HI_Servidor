@@ -13,9 +13,7 @@
         <form class="form" id="form1" th:action="@{/comprobarRegistro}" th:object="${loginRegister}" method="post">
             <h2 class="form__title">Registrase</h2>
             <input type="text" placeholder="User" class="input" th:field="*{nombre}"/>
-            <span th:text="${msgNombre}"></span>
             <input type="email" placeholder="Email" class="input" th:field="*{email}"/>
-            <span th:text="${msgEmail}"></span>
             <input type="password" placeholder="Password" class="input" th:field="*{pssw}"/>
             <input type="submit" value="Registrarse" class="btn" />
         </form>
@@ -26,7 +24,6 @@
         <form class="form" id="form2" th:action="@{/comprobarLogin}" th:object="${loginRegister}" method="post">
             <h2 class="form__title">Iniciar Sesión</h2>
             <input type="text" placeholder="Email o User name" class="input" th:field="*{iniciar}"/>
-            <span th:text="${msgIniciar}"></span>
             <input type="password" placeholder="Password" class="input" th:field="*{pssw}"/>
             <a href="#" class="link">Forgot your password?</a>
             <input type="submit" value="Iniciar Sesión" class="btn" />

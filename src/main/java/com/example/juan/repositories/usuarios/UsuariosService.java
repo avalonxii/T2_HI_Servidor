@@ -1,6 +1,7 @@
 package com.example.juan.repositories.usuarios;
 
 import com.example.juan.model.UsuariosEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.ApplicationScope;
 
@@ -51,10 +52,13 @@ public class UsuariosService {
     /*-------------- para Login --------------*/
     public boolean confirmarUsuario(String inicio, String pssw){
 
+        BCryptPasswordEncoder encriptado = new BCryptPasswordEncoder();
+
         out:
         for(UsuariosEntity u: usuariosRepository.findAll()){
             if(u.getNombre().equals(inicio) || u.getEmail().equals(inicio)){
-                if(u.getPssw().equals(pssw)){
+
+                if(encriptado.matches(pssw, u.getPssw())){
                     return true;
                 }
                 else{
@@ -67,6 +71,8 @@ public class UsuariosService {
     }
 
     public void guardarUsuario(UsuariosEntity user) {
+        BCryptPasswordEncoder encriptado = new BCryptPasswordEncoder();
+        user.setPssw(encriptado.encode(user.getPssw()));
         usuariosRepository.save(user);
     }
 
