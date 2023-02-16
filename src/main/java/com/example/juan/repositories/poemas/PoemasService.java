@@ -19,15 +19,27 @@ public class PoemasService {
         this.listaPoemas = new ArrayList<>();
     }
 
-    public List<PoemasEntity> mostrarRecomendaciones(){
+    public List<PoemasEntity> mostrarPoemas(){
 
         listaPoemas.clear();
-        for (PoemasEntity re: poemasRepository.findAll()) {
-            this.listaPoemas.add(re);
-
-        }
+        this.listaPoemas.addAll(poemasRepository.findAll());
 
         return this.listaPoemas;
+    }
+
+    //guardar poema
+    public void guardarPoema(PoemasEntity poema){
+        poemasRepository.save(poema);
+    }
+
+    //eliminar poema
+    public void eliminarPoema(int id){
+        poemasRepository.deleteById(id);
+    }
+
+    //actualziar poema
+    public void actualizarPoema(PoemasEntity poema){
+        poemasRepository.save(poema);
     }
 
 }

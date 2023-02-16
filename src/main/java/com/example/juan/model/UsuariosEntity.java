@@ -8,6 +8,9 @@ import java.util.Objects;
 @Entity
 @Table(name = "usuarios", schema = "t2_hi_servidor", catalog = "")
 public class UsuariosEntity {
+
+    @Transient
+    private String iniciar;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -24,6 +27,16 @@ public class UsuariosEntity {
 
     @OneToMany(mappedBy = "autor")
     private Collection<PoemasEntity> poemas;
+
+    // Getters and Setters
+
+    public String getIniciar() {
+        return iniciar;
+    }
+
+    public void setIniciar(String iniciar) {
+        this.iniciar = iniciar;
+    }
 
     public int getId() {
         return id;

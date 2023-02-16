@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>title</title>
+    <link rel="stylesheet" th:href="@{css/index.css}">
 </head>
 <body>
 
-<h1>hola</h1>
+<div layout:fragment="content">
+    <div class="container_banner"></div>
+</div>
 
 </body>
 </html>

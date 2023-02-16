@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/loginRegister.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div class="container right-panel-active" >
+    <!-- Sign Up -->
+    <div class="container__form container--signup">
+        <form class="form" id="form1" th:action="@{/comprobarRegistro}" th:object="${loginRegister}" method="post">
+            <h2 class="form__title">Registrase</h2>
+            <input type="text" placeholder="User" class="input" th:field="*{nombre}"/>
+            <input type="email" placeholder="Email" class="input" th:field="*{email}"/>
+            <input type="password" placeholder="Password" class="input" th:field="*{pssw}"/>
+            <input type="submit" value="Registrarse" class="btn" />
+        </form>
+    </div>
+
+    <!-- Sign In -->
+    <div class="container__form container--signin">
+        <form class="form" id="form2" th:action="@{/comprobarLogin}" th:object="${loginRegister}" method="post">
+            <h2 class="form__title">Iniciar Sesión</h2>
+            <input type="text" placeholder="Email o User name" class="input" th:field="*{iniciar}"/>
+            <input type="password" placeholder="Password" class="input" th:field="*{pssw}"/>
+            <a href="#" class="link">Forgot your password?</a>
+            <input type="submit" value="Iniciar Sesión" class="btn" />
+        </form>
+    </div>
+
+    <!-- Overlay -->
+    <div class="container__overlay">
+        <div class="overlay">
+            <div class="overlay__panel overlay--left">
+                <button class="btn" id="signIn">Iniciar Sesión</button>
+            </div>
+            <div class="overlay__panel overlay--right">
+                <button class="btn" id="signUp">Registrase</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{/js/loginRegister.js}"></script>
+
+</body>
+</html>
