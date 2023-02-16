@@ -21,13 +21,9 @@ public class PoemasEntity {
     @Basic
     @Column(name = "fecha")
     private Date fecha;
-    @Basic
-    @Column(name = "autor")
-    private Integer autor;
-
     @ManyToOne
-    @JoinColumn(name = "autor", referencedColumnName = "id")
-    private UsuariosEntity usuariosByAutor;
+    @JoinColumn(name = "ID_USER")
+    private UsuariosEntity autor;
 
 
     public int getId() {
@@ -62,11 +58,11 @@ public class PoemasEntity {
         this.fecha = fecha;
     }
 
-    public Integer getAutor() {
+    public UsuariosEntity getAutor() {
         return autor;
     }
 
-    public void setAutor(Integer autor) {
+    public void setAutor(UsuariosEntity autor) {
         this.autor = autor;
     }
 
@@ -81,13 +77,5 @@ public class PoemasEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, titulo, contenido, fecha, autor);
-    }
-
-    public UsuariosEntity getUsuariosByAutor() {
-        return usuariosByAutor;
-    }
-
-    public void setUsuariosByAutor(UsuariosEntity usuariosByAutor) {
-        this.usuariosByAutor = usuariosByAutor;
     }
 }
