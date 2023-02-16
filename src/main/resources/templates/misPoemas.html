@@ -10,28 +10,28 @@
 
 <div layout:fragment="content">
 
-  <h2>Mis Poemas</h2>
+    <h2>Mis Poemas</h2>
 
-
+  <div class="container">
 
     <div class="example-1 card" th:each="miPoema: ${poemas}">
-      <div class="wrapper" th:style="'background-image: url(' + ${poema.getImagen()} + ');'">
-      <div class="date">
-        <span class="day" th:text="${miPoema.getDia()}"></span>
-        <span class="month" th:text="${miPoema.getMes()}"></span>
-        <span class="year" th:text="${miPoema.getYear()}"></span>
-      </div>
-      <div class="data">
-        <div class="content">
-          <span class="author" th:text="${miPoema.getAutor().getNombre()}"></span>
-          <h3 class="title"><a href="#" th:text="${miPoema.getTitulo()}"></a></h3>
-          <p class="text" th:text="${miPoema.getContenido()}"></p>
+        <div class="wrapper" th:style="'background-image: url(' + ${miPoema.getImagen()} + ');'">
+            <div class="date">
+              <span class="day" th:text="${miPoema.getDia()}"></span>
+              <span class="month" th:text="${miPoema.getMes()}"></span>
+              <span class="year" th:text="${miPoema.getYear()}"></span>
+            </div>
+            <div class="data">
+                <div class="content">
+                    <span class="author" th:text="${miPoema.getAutor().getNombre()}"></span>
+                    <h3 class="title"><a href="#" th:text="${miPoema.getTitulo()}"></a></h3>
+                    <p class="text" th:text="${miPoema.getContenido()}"></p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-
-
+    </div>
+</div>
 
 
 </body>

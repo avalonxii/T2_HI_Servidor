@@ -130,7 +130,7 @@ public class Controlador {
     }
 
     @RequestMapping("/misPoemas")
-    public String peticion7(ModelMap model) {
+    public String misPoemas(ModelMap model) {
 
         System.out.println(login.getLogin().getId());
 
@@ -140,8 +140,8 @@ public class Controlador {
         return "misPoemas";
     }
 
-    @RequestMapping("/eliminarReco/{id}")
-    public String peticion8(@PathVariable int id) {
+    @RequestMapping("/eliminarPoema/{id}")
+    public String eliminarPoema(@PathVariable int id) {
 
         poemaService.eliminarPoema(id);
 
